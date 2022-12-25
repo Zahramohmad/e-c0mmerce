@@ -42,21 +42,27 @@ body{
      width: 100%;
      border-radius: 5px;
      position: relative;
-     background:   #80a7b9;
    height: auto;
    }
    
    .search-input input{
-     height: 40px;
-     width: 100%;
-     outline: none;
-     border: none;
-     border-radius: 5px;
-     padding: 20px;
-     font-size: 18px;
-     box-shadow: 0px 1px 5px rgba(10, 10, 10, 0.1);
-     position: relative;
-   }
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(10, 10, 10, 0.1);
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.212);
+    border: 1px solid  rgba(255,255 ,255,0.25 ) ;
+    border-top: 1px solid rgba(255,255 ,255,0.5 );
+    border-bottom: 1px solid  rgba(255,255 ,255,0.5 );
+    backdrop-filter: blur(1px);
+    color: #ffffff;
+  }
    
    .search-input.active input{
      border-radius: 5px 5px 0 0;
@@ -105,7 +111,7 @@ body{
      bottom: 10%;
      text-align: center;
      font-size: 20px;
-     color: rgb(46, 45, 45);
+     color: rgb(253, 253, 253);
      cursor: pointer; }
      
      .remove-cart {
@@ -406,57 +412,4 @@ body{
         }
     }
      /* footer */
-     footer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px;
-        background-color: #1e464ec5;
-        box-shadow: 3px 10 30px #304f55;
-        height: 100%;
-    }
-    .font-foot li{
-        color: rgb(231, 224, 224);
-        transition: 0.4s;
-    }
-    .font-foot li:hover{
-        color: #d6bd31;
-    }
-    .flex{
-    text-align: center;
-    }
-.foot-icon{
-font-size: 20px;
-text-decoration: none;
-color: rgb(230, 230, 230);
-transition: 0.4s;
-padding: 5px;
-}
-.foot-icon:hover{
-color: #d6bd31;
-}
-
-@media (max-width:767px){
-    footer{ flex-direction: column;
-text-align: center;
-align-items: center;
-justify-content: center;
-
-    }
-    .font-foot li{
-padding: 10px;
-align-items: center;
-letter-spacing: 1px;
-    }
-}
-.hrr{
-    margin-top:100px;
-    width: 20%;
-    text-align: center;
-    color: #45d9ec;
-    border-radius:3px;
-    box-shadow: 0 15px 35px rgba(110, 110, 110, 0.1);
-    border-top: 6px solid;
-
-}
-
+    

@@ -42,21 +42,28 @@ z-index: 999;
    width: 100%;
    border-radius: 5px;
    position: relative;
-   background:   #80a7b9;
+  
  height: auto;
  }
  
  .search-input input{
-   height: 40px;
-   width: 100%;
-   outline: none;
-   border: none;
-   border-radius: 5px;
-   padding: 20px;
-   font-size: 18px;
-   box-shadow: 0px 1px 5px rgba(10, 10, 10, 0.1);
-   position: relative;
- }
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(10, 10, 10, 0.1);
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.212);
+  border: 1px solid  rgba(255,255 ,255,0.25 ) ;
+  border-top: 1px solid rgba(255,255 ,255,0.5 );
+  border-bottom: 1px solid  rgba(255,255 ,255,0.5 );
+  backdrop-filter: blur(1px);
+  color: #ffffff;
+}
  
  .search-input.active input{
    border-radius: 5px 5px 0 0;
@@ -105,7 +112,7 @@ z-index: 999;
    bottom: 10%;
    text-align: center;
    font-size: 20px;
-   color: rgb(46, 45, 45);
+   color: rgb(253, 253, 253);
    cursor: pointer; }
    
    .remove-cart {

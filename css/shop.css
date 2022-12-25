@@ -16,19 +16,24 @@ body{
 }
 .navbar {
 background-color: rgb(44, 43, 43);
-text-align: center;
 margin-top: 0;
 position: fixed;
 width: 100%;
 z-index: 999;
 }
+.navbar i{
+  text-align: center;
+}
+.nav-item{
+  text-align: center;
+}
 .navbar a{
   color: #ffffff;
   font-size: 16px;
-  text-align: center;
+  
 
 }
-.navbar a:hover{
+.nav-item :hover{
   color: #64b8c9;
 
 }
@@ -42,7 +47,6 @@ z-index: 999;
     width: 100%;
     border-radius: 5px;
     position: relative;
-    background:   #80a7b9;
   height: auto;
   }
   
@@ -56,48 +60,65 @@ z-index: 999;
     font-size: 18px;
     box-shadow: 0px 1px 5px rgba(10, 10, 10, 0.1);
     position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.212);
+    border: 1px solid  rgba(255,255 ,255,0.25 ) ;
+    border-top: 1px solid rgba(255,255 ,255,0.5 );
+    border-bottom: 1px solid  rgba(255,255 ,255,0.5 );
+    backdrop-filter: blur(1px);
+    color: #ffffff;
   }
-  
+  .search-input input::placeholder{
+  color: #5fc4f7;
+  }
   .search-input.active input{
     border-radius: 5px 5px 0 0;
   }
   
-  .search-input .autocom-box{
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-    max-height: 280px;
-    overflow-y: auto;
+  .search-input .autocom_box{
+    margin-top: 10px;
+    opacity: 1;
+    height: 200px;
     position: absolute;
   width: 100%;
   color: #eaeef0;
-  background: rgba(255,255 ,255,0.2 );
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+justify-content: flex-start;
+flex-direction: column;
+overflow: auto;
+
+  }
+  .search-input .autocom_box::-webkit-scrollbar{
+  display: none;
+  }
+  
+  .autocom_box .card3{
+  width: 100%;
+  min-height: 45px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 5px;
+  margin-bottom:10px;
+  background: rgba(255, 255, 255, 0.075);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.212);
-  border: 1px solid  rgba(255,255 ,255,0.25 ) ;
-  border-top: 1px solid rgba(255,255 ,255,0.5 );
-  border-bottom: 1px solid  rgba(255,255 ,255,0.5 );
   backdrop-filter: blur(4px);
-  }
+  border-radius: 6px;
+  display: none;
   
-  .search-input.active .autocom-box{
-    padding: 10px 8px;
-    opacity: 1;
-    pointer-events: auto;
   }
-  
-  .autocom-box li{
-    list-style: none;
-    padding: 8px 12px;
-    display: none;
+  .icon{
+    text-align: center;
+  }
+  .card3 .content{
     width: 100%;
-    cursor: default;
-  }
-  
-  .search-input.active .autocom-box li{
-    display: block;
-  }
-  .autocom-box li:hover{
-    background:   #bcbebe42;
+    height: 100%;
+    padding: 2px;
+    font-size: 13px;
+    text-align: end;
+    padding: 10px;
   }
   .search-input .icon{
     position: absolute;
@@ -105,7 +126,7 @@ z-index: 999;
     bottom: 10%;
     text-align: center;
     font-size: 20px;
-    color: rgb(46, 45, 45);
+    color: rgb(255, 255, 255);
     cursor: pointer; }
     
     .remove-cart {
@@ -162,7 +183,7 @@ z-index: 999;
   top: 0;
   right: -100%;
   width: 360px;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #1c3a41;
   padding: 30px;
   transition: 0.3s;
@@ -174,6 +195,8 @@ z-index: 999;
     border-bottom: 1px solid  rgba(255,255 ,255,0.5 );
     border-radius: 2px;
     backdrop-filter: blur(4px);
+    overflow: auto;
+    
   }
   .cart.active{
       right:0 ;
@@ -183,6 +206,7 @@ z-index: 999;
       grid-template-columns:35% 50% 15% ;
       gap: 1rem;
       margin-top: 1rem;
+ 
   }
   .cat-box img{
       width: 120px;
@@ -337,6 +361,7 @@ font-size:12px ;
   justify-content: center;
   background-color: #71ddf50a;
   padding: 30px;
+  flex-wrap: wrap;
 }
 .par1{
 margin: 7px;
@@ -404,6 +429,7 @@ justify-content: center;
   margin-top: 15px;
 align-items: center;
 text-align: center;
+  flex-wrap: wrap;
   }
   @media (max-width:767px) {
       .shop-contat{
@@ -481,4 +507,49 @@ text-align: center;
   .titles{
       color: rgb(255, 255, 255);
       font-size: 20px; }
-      
+      #loading
+{
+  position: fixed;
+  inset: 0;
+  background-color: #232424;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+#loading
+{
+  position: fixed;
+  inset: 0;
+  background-color: #2d2e2e;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+#loading::after
+{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  width: 10%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 10px solid rgb(10, 218, 233);
+  border-top-color: rgb(255, 244, 244);
+  animation: spinner 3s linear infinite;
+}
+
+@keyframes spinner
+{
+  from
+  {
+    transform: rotateZ(0deg);
+  }
+  to
+  {
+    transform: rotateZ(360deg);
+  }
+}

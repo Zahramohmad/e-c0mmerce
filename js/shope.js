@@ -1,76 +1,4 @@
-const searchWrapper = document.querySelector(".search-input");
-const inputBox = searchWrapper.querySelector("input");
-const suggBox = searchWrapper.querySelector(".autocom-box");
-const icon = searchWrapper.querySelector(".icon");
-let linkTag = searchWrapper.querySelector("a");
-let webLink;
 
-// if user press any key and release
-inputBox.onkeyup = (e)=>{
-    let userData = e.target.value; //user enetered data
-    let emptyArray = [];
-    if(userData){
-        icon.onclick = ()=>{
-            webLink = "https://www.google.com/search?q=" + userData;
-            linkTag.setAttribute("href", webLink);
-            console.log(webLink);
-            linkTag.click();
-        }
-        emptyArray = suggestions.filter((data)=>{
-            //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
-        });
-        emptyArray = emptyArray.map((data)=>{
-            // passing return data inside li tag
-            return data = '<li>'+ data +'</li>';
-        });
-        searchWrapper.classList.add("active"); //show autocomplete box
-        showSuggestions(emptyArray);
-        let allList = suggBox.querySelectorAll("li");
-        for (let i = 0; i < allList.length; i++) {
-            //adding onclick attribute in all li tag
-            allList[i].setAttribute("onclick", "select(this)");
-        }
-    }else{
-        searchWrapper.classList.remove("active"); //hide autocomplete box
-    }
-}
-
-function select(element){
-    let selectData = element.textContent;
-    inputBox.value = selectData;
-    icon.onclick = ()=>{
-        webLink = "https://www.google.com/search?q=" + selectData;
-        linkTag.setAttribute("href", webLink);
-        linkTag.click();
-    }
-    searchWrapper.classList.remove("active");
-}
-
-function showSuggestions(list){
-    let listData;
-    if(!list.length){
-        userValue = inputBox.value;
-        listData = '<li>'+ userValue +'</li>';
-    }else{
-        listData = list.join('');
-    }
-    suggBox.innerHTML = listData;
-}
-
-let suggestions = [
-    "iphone 14 pro max",
-    "iphone 13 pro max",
-    "iphone 11 pro max",
-     "mac book pro",
-    "mac book 2020",
-    "lenovo",
-    "samsung",
-    "ibad",
-    "hawai",
-   
-];
-// ending seacrch
 // cart slid
 let cartIcon = document.querySelector('#carticon'); 
 let cart = document.querySelector('.cart');
@@ -218,7 +146,76 @@ function changeImageSr(anything){
             document.getElementsByClassName('total-price')[0].innerText = '$'+ total
     
     }
+    // search
+    const product = [{
+        id:'1',
+        productName:`<div class="content">Huawei MatePad</div>`,
+        poster:"iPad-Pro-with-Keyboard-Mockup-removebg-preview.png"
+    },
+    {
+        id:'2',
+        productName:`  <div class="content">Apple watch</div>`,
+        poster:"shopping.png"
+    },
+    {
+        id:'3',
+        productName:` <div class="content">GALAXY</div>`,
+        poster:"sm1.png"
+    },
+    {
+        id:'4',
+        productName:` <div class="content">Iphone 14 pro max</div>`,
+        poster:"black.png"
+    },
+    {
+        id:'5',
+        productName:` <div class="content">Airpods</div>`,
+        poster:"air3.png"
+    },
+    {
+        id:'6',
+        productName:`  <div class="content">Laptop</div>`,
+        poster:"Series-7-mobile-PC-600x473-removebg-preview.png"
+    },
+    ]
     
     
-    
-    
+    let autocom_box = document.getElementsByClassName('autocom_box')[0];
+    product .forEach(element => {
+        const {id, productName, poster}=element;
+        let sseco = document.createElement('a');
+        sseco.classList.add('card3');
+        sseco.href='#'+id;
+        sseco.innerHTML =`
+        <img src="${poster}"  width="35px" alt="">
+        <div class="content">${productName}</div>
+        `;
+        autocom_box.appendChild(sseco);
+    });
+    let input = document.getElementsByTagName('input')[0];
+input.addEventListener('keyup', () =>{
+let input_value = input.value.toUpperCase();
+let items = autocom_box.getElementsByTagName('a');
+for(let i = 0 ; i< items.length;i++){
+    let as = items[i].getElementsByClassName('content')[0];
+    let text_value = as.textContent || as.innerText;
+    if (text_value.toUpperCase().indexOf(input_value) > -1){
+        items[i].style.display="flex"; }
+        else{
+            items[i].style.display="none";
+        }
+    if( input.value == 0){
+        autocom_box.style.display ="none";
+    }else{
+        autocom_box.style.display ="";
+    }
+}
+})
+let loading = document.getElementById("loading");
+
+setTimeout(function () {
+  loading.style.opacity = 0;
+  setTimeout(function () {
+    loading.style.display = "none";
+  }, 500);
+}, 1500);
