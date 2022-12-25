@@ -517,39 +517,3 @@ text-align: center;
   transition: opacity 500ms ease;
 }
 
-#loading
-{
-  position: fixed;
-  inset: 0;
-  background-color: #2d2e2e;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 500ms ease;
-}
-
-#loading::after
-{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  width: 10%;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 10px solid rgb(10, 218, 233);
-  border-top-color: rgb(255, 244, 244);
-  animation: spinner 3s linear infinite;
-}
-
-@keyframes spinner
-{
-  from
-  {
-    transform: rotateZ(0deg);
-  }
-  to
-  {
-    transform: rotateZ(360deg);
-  }
-}
